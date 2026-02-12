@@ -1,0 +1,256 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe5ec, #ffb3c1);
+    text-align: center;
+    margin: 0;
+    padding: 40px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.photo-gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.photo-frame {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.photo-placeholder {
+    width: 250px;
+    height: 300px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-yes {
+    background: #e63946;
+    color: white;
+}
+
+.btn-no {
+    background: white;
+    color: #e63946;
+    border: 2px solid #e63946;
+}
+
+.response-message {
+    display: none;
+    margin-top: 40px;
+}
+
+/* Botón mágico */
+.magic-button {
+    font-size: 3rem;
+    cursor: pointer;
+    margin-top: 20px;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 5px gold);
+        transform: scale(1);
+    }
+    to {
+        filter: drop-shadow(0 0 20px gold);
+        transform: scale(1.2);
+    }
+}
+
+/* Lluvia */
+.magic-drop {
+    position: fixed;
+    top: -60px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* Botón música */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.photo-caption {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 500;
+    color: #c9184a;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.photo-caption:hover {
+    color: #a4133c;
+    transform: scale(1.05);
+}
+
+.mensaje-broma {
+    position: fixed;
+    background: #fff;
+    color: #e63946;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: aparecerBroma 1.5s ease forwards;
+    z-index: 9999;
+}
+
+@keyframes aparecerBroma {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+.Heaven-word {
+    font-family: "Lucida Calligraphy", cursive;
+    font-size: 2rem;
+    color: #c77dff;
+    padding: 8px 18px;
+    border: 3px solid #d8b4fe;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+    box-shadow: 0 4px 15px rgba(199, 125, 255, 0.4);
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+
+.Heaven-word:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(199, 125, 255, 0.6);
+}
+
+/* ESCENA FINAL */
+.final-scene {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; /* SOLO PARA PROBAR */
+    visibility: visible; /* SOLO PARA PROBAR */
+    z-index: 10000;
+    overflow: hidden;
+}
+
+.final-scene::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' font-size='40'>💜</svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' font-size='40'>🌷</svg>");
+    background-size: 120px 120px;
+    background-repeat: repeat;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+
+
+.final-scene.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* CORAZÓN MEJORADO */
+/* ESCENA FINAL */
+.final-scene {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1.5s ease;
+    z-index: 10000;
+}
+
+.final-scene.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* CORAZÓN LIMPIO Y CENTRADO */
+.heart-container {
+    width: 320px;
+    height: 290px;
+    background: #c77dff;
+    position: relative;
+    clip-path: path("M160 290 L20 150 A80 80 0 1 1 160 70 A80 80 0 1 1 300 150 Z");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* IMAGEN CENTRADA Y ENFOCADA EN LOS LEGO */
+.heart-container img {
+    width: 94%;  /*menos zoom */
+    height: 100%;
+    object-fit: cover;
+    object-position: center 65%; /* Ajusta si quieres subir/bajar los muñecos */
+}
+
+/* MENSAJE FINAL */
+.final-message {
+    margin-top: 40px;
+    font-family: "Lucida Calligraphy", cursive;
+    font-size: 1.8rem;
+    color: #7b2cbf;
+    text-align: center;
+}
+
+.question-section h2 {
+    color: #7b0323; /* rojo concha de vino */
+    font-weight: bold;
+}
